@@ -1,0 +1,80 @@
+<div class="carga" *ngIf="cargando">
+    <mat-spinner></mat-spinner>
+
+</div>
+<div class="contenedor-princial">
+    <mat-card class="animated fadeInDown">
+        <mat-card-title>
+            <h1>Nuevo usuario</h1>
+        </mat-card-title>
+        <mat-card-subtitle> Porfavor registre sus credenciales a continucación:</mat-card-subtitle>
+
+        <form class="example-form" [formGroup]="form" (ngSubmit)="crearUsuario()">
+            <!-- nombre -->
+            <mat-form-field class="nombre">
+                <input formControlName="nombre" type="texts" matInput placeholder="Nombre">
+                <mat-error *ngIf="form.controls.nombre.errors?.required">Este campo es obligatorio</mat-error>
+
+            </mat-form-field>
+            <!-- apellidos -->
+            <div class="apellidos">
+                <!-- 1 -->
+                <mat-form-field class="apellido1">
+                    <input formControlName="apellidoUno" type="text" matInput placeholder="Primer Apellido">
+                    <mat-error *ngIf="form.controls.apellidoUno.errors?.required">Este campo es obligatorio</mat-error>
+
+                </mat-form-field>
+                <!-- 2 -->
+                <mat-form-field>
+                    <input formControlName="apellidoDos" type="text" matInput placeholder="Segundo Apellido">
+
+                </mat-form-field>
+            </div>
+            <!-- role -->
+
+
+            <mat-form-field>
+                <mat-label>Tipo de usuario</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option value="administracion">Administración</mat-option>
+                    <mat-option value="logistica">Logística</mat-option>
+
+                </mat-select>
+                <mat-error *ngIf="form.controls.role.errors?.required">Este campo es obligatorio</mat-error>
+            </mat-form-field>
+
+
+
+
+
+
+            <!-- email -->
+            <mat-form-field class="email">
+                <input formControlName="email" type="email" matInput placeholder="Email">
+                <mat-error *ngIf="form.controls.email.errors?.required">Este campo es obligatorio</mat-error>
+                <mat-error *ngIf="form.controls.email.errors?.pattern">Porfavor, introduzca una dirección de email válida</mat-error>
+
+            </mat-form-field>
+
+            <br>
+            <!-- pass -->
+            <mat-form-field class="pass">
+                <input type="password" formControlName="pass" matInput placeholder="Contraseña">
+                <mat-error *ngIf="form.controls.pass.errors?.required">Este campo es obligatorio</mat-error>
+
+            </mat-form-field>
+
+            <!-- registrar / ya tengo cuenta-->
+            <div class="singInBoton">
+                <a [routerLink]="['/singIn']" mat-button>¿Ya tienes una cuenta? Inicia sesión</a>
+
+                <!-- boton -->
+                <div>
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Resgistrarse</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+
+
+</div>

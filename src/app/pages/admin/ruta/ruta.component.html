@@ -1,0 +1,17 @@
+<div class="contenedor-principal">
+    <div class="form">
+        <form [formGroup]="form" (ngSubmit)="crearRuta()">
+            <mat-form-field>
+                <input formControlName="origen" matInput placeholder="Origen">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input formControlName="destino" matInput placeholder="Destino">
+            </mat-form-field>
+            <div>
+                <button [disabled]="form.invalid" type="submit" mat-raised-button color="accent">Crear ruta</button>
+
+            </div>
+        </form>
+    </div>
+</div>

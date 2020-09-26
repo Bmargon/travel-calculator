@@ -1,0 +1,118 @@
+<div>
+    <mat-card class="container">
+        <h1>Hola, <strong>{{nombre}}</strong>!</h1>
+        <hr>
+        <mat-chip-list aria-label="Fish selection">
+
+            <mat-chip color="accent" selected>{{role}}</mat-chip>
+        </mat-chip-list>
+
+    </mat-card>
+    <br>
+
+    <mat-card class="container" *ngIf="admin">
+        <h3>Opciones de administrador</h3>
+        <hr>
+        <mat-chip-list>
+            <a routerLink="adminUsers">
+                <mat-chip color="accent">Administrar usuarios</mat-chip>
+            </a>
+            <a routerLink="rutes">
+                <mat-chip color="accent">Crear ruta</mat-chip>
+            </a>
+            <a routerLink="adminRutes">
+                <mat-chip color="accent">Modificar rutas</mat-chip>
+            </a>
+
+        </mat-chip-list>
+        <br>
+        <mat-card>
+            <router-outlet></router-outlet>
+
+        </mat-card>
+    </mat-card>
+
+    <br>
+    <mat-card class="container">
+        <h3>Rutas activas:</h3>
+        <hr>
+        <div>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let ruta of rutasActivas">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ruta.payload.doc._document.proto.fields.origenRuta.stringValue}}
+
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{ruta.payload.doc._document.proto.fields.destinoRuta.stringValue}} </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <div class="contenido-caja">
+
+
+                        <agm-map [latitude]="ruta.payload.doc._document.proto.fields.latD.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altD.doubleValue" [zoom]="5">
+                            <agm-polyline>
+                                <agm-polyline-point [latitude]="ruta.payload.doc._document.proto.fields.latD.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altD.doubleValue">
+                                    <agm-marker [latitude]="ruta.payload.doc._document.proto.fields.latD.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altD.doubleValue"></agm-marker>
+
+                                </agm-polyline-point>
+                                <agm-polyline-point [latitude]="ruta.payload.doc._document.proto.fields.latO.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altO.doubleValue">
+                                    <agm-marker [latitude]="ruta.payload.doc._document.proto.fields.latO.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altO.doubleValue"></agm-marker>
+
+                                </agm-polyline-point>
+                            </agm-polyline>
+                        </agm-map>
+                        <hr>
+                        <div>
+                            <p>Duración: <strong>{{ruta.payload.doc._document.proto.fields.duracion.stringValue}}</strong></p>
+                            <p>Distancia: <strong> {{ruta.payload.doc._document.proto.fields.distancia.stringValue}}</strong></p>
+                        </div>
+                    </div>
+
+                </mat-expansion-panel>
+
+            </mat-accordion>
+        </div>
+        <hr>
+        <h3>Rutas terminadas:</h3>
+        <div>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let ruta of rutasOff">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ruta.payload.doc._document.proto.fields.origenRuta.stringValue}}
+
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{ruta.payload.doc._document.proto.fields.destinoRuta.stringValue}} </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <div class="contenido-caja">
+
+
+                        <agm-map [latitude]="ruta.payload.doc._document.proto.fields.latD.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altD.doubleValue" [zoom]="5">
+                            <agm-polyline>
+                                <agm-polyline-point [latitude]="ruta.payload.doc._document.proto.fields.latD.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altD.doubleValue">
+                                    <agm-marker [latitude]="ruta.payload.doc._document.proto.fields.latD.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altD.doubleValue"></agm-marker>
+
+                                </agm-polyline-point>
+                                <agm-polyline-point [latitude]="ruta.payload.doc._document.proto.fields.latO.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altO.doubleValue">
+                                    <agm-marker [latitude]="ruta.payload.doc._document.proto.fields.latO.doubleValue" [longitude]="ruta.payload.doc._document.proto.fields.altO.doubleValue"></agm-marker>
+
+                                </agm-polyline-point>
+                            </agm-polyline>
+                        </agm-map>
+                        <hr>
+                        <div>
+                            <p>Duración: <strong>{{ruta.payload.doc._document.proto.fields.duracion.stringValue}}</strong></p>
+                            <p>Distancia: <strong> {{ruta.payload.doc._document.proto.fields.distancia.stringValue}}</strong></p>
+                        </div>
+                    </div>
+
+                </mat-expansion-panel>
+
+            </mat-accordion>
+        </div>
+    </mat-card>
+</div>

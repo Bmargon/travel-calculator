@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+.carga {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-princial {
+    position: relative;
+    min-height: 100vh;
+    background-image: linear-gradient(to right top, #845ec2, #e65faa, #ff8080, #ffbb61, #f9f871);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+    form {
+        .nombre {
+            display: block;
+        }
+        .email {
+            margin-top: 0.5rem;
+            display: block;
+        }
+        .pass {
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .singInBoton {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}

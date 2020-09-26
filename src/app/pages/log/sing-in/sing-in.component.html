@@ -1,0 +1,38 @@
+<div class="carga" *ngIf="cargando">
+    <mat-spinner></mat-spinner>
+
+</div>
+<div class="contenedor-principal">
+    <mat-card class="tarjeta animated fadeInUp">
+        <mat-card-title>
+            <h1>Inciar sesión</h1>
+        </mat-card-title>
+        <mat-card-subtitle> Porfavor inicia sesión con sus credenciales a continucación:</mat-card-subtitle>
+        <form [formGroup]="form" (ngSubmit)="logIn()">
+            <!-- email -->
+            <mat-form-field>
+                <input formControlName="email" type="email" matInput placeholder="Email">
+                <mat-error *ngIf="form.controls.email.errors?.required">Este campo es obligatorio</mat-error>
+
+            </mat-form-field>
+            <!-- password -->
+            <mat-form-field class="pass">
+                <input formControlName="password" type="password" matInput placeholder="Contraseña">
+                <mat-error *ngIf="form.controls.password.errors?.required">Este campo es obligatorio</mat-error>
+
+            </mat-form-field>
+            <!-- nueva cuenta -->
+
+            <div class="singInBoton">
+                <a [routerLink]="['/singUp']" mat-button>¿No tienes cuenta? Crea una</a>
+
+                <!-- boton -->
+                <div>
+                    <button [disabled]="form.invalid" type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+                </div>
+
+            </div>
+
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,11 @@
+agm-map {
+    height: 300px;
+}
+
+.botones {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-left: 1rem;
+    }
+}

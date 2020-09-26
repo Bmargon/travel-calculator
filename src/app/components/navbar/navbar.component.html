@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <div class=" menu container">
+        <div>The master app</div>
+        <div>
+            <ul>
+                <li>
+                    <a [routerLink]="['/home', 'index', url]">Inicio</a>
+                    <a [routerLink]="['profile', url]">Perfil</a>
+                    <button (click)="logOut()" mat-flat-button color="warn">Cerrar sesión</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</mat-toolbar>

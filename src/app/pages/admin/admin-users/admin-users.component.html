@@ -1,0 +1,13 @@
+<div class="contenedor-principal">
+    <mat-list role="list">
+        <mat-list-item *ngFor="let usu of usuarios; let i = index" role="listitem">
+            <div class="botonos">
+                <button mat-raised-button color="accent" (click)="editarUsuario(i)">Editar</button>
+                <button mat-raised-button color="warn" (click)="borrarUsuario(i)">Borrar</button>
+            </div>
+            <p>{{usu.payload.doc._document.proto.fields.email.stringValue}}</p>
+
+        </mat-list-item>
+
+    </mat-list>
+</div>

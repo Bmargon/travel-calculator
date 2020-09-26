@@ -1,0 +1,19 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+        margin-top: 1rem;
+        li {
+            list-style: none;
+            a {
+                text-decoration: none;
+                color: white;
+                margin-left: 1rem;
+            }
+            button {
+                margin-left: 1rem;
+            }
+        }
+    }
+}

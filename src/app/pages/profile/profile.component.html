@@ -1,0 +1,34 @@
+<div class="contenedor-princial">
+    <mat-card class="container">
+        <h1>Información de perfil</h1>
+        <hr>
+        <form [formGroup]="form" (ngSubmit)="actualizar()">
+            <!-- nombre -->
+            <mat-form-field class="nombre">
+                <input formControlName="nombre" type="texts" matInput placeholder="Nombre">
+            </mat-form-field>
+            <!-- apellido -->
+            <mat-form-field class="nombre">
+                <input formControlName="apellidoUno" type="texts" matInput placeholder="Primer Apellido">
+            </mat-form-field>
+            <!-- apellido2 -->
+            <mat-form-field class="nombre">
+                <input formControlName="apellidoDos" type="texts" matInput placeholder="Segundo Apellido">
+            </mat-form-field>
+
+
+            <!-- email -->
+            <mat-form-field class="nombre">
+                <input formControlName="email" type="texts" matInput placeholder="email">
+            </mat-form-field>
+            <!-- pass -->
+            <mat-form-field class="nombre">
+                <input formControlName="pass" type="password" matInput placeholder="Contraseña">
+            </mat-form-field>
+            <div class="boton">
+                <button type="accent" color="warn" mat-raised-button>Actualizar</button>
+            </div>
+
+        </form>
+    </mat-card>
+</div>

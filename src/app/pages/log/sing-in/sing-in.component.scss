@@ -1,0 +1,49 @@
+@import '../../../../styles.scss';
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.carga {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-principal {
+    position: relative;
+    min-height: 100vh;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    .tarjeta {
+        padding: 1rem;
+        height: auto;
+        width: 30%;
+        form {
+            display: flex;
+            flex-direction: column;
+            .pass {
+                margin-bottom: 1.5rem;
+            }
+            .singInBoton {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                a {
+                    color: #999999;
+                }
+            }
+        }
+    }
+}
